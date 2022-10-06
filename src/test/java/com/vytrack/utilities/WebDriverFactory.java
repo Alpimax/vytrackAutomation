@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.function.Function;
+
 public class WebDriverFactory {
 
     public static WebDriver getDriver(String browserType){  // "Chrome""
@@ -21,7 +23,6 @@ public class WebDriverFactory {
             System.out.println("Given browser type doesn't exist/or not currently supported!");
             return null;
         }
-
     }
 
 }

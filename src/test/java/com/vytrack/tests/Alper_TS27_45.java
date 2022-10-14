@@ -1,4 +1,5 @@
 package com.vytrack.tests;
+import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,33 +15,35 @@ public class Alper_TS27_45 {
     @BeforeMethod
     public void setUptMethod() {
         driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to("https://qa2.vytrack.com/user/login");
-
-
     }
+
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+      driver.quit();
     }
 
     @Test
-    public void testModel() {
+    public void testModel() throws InterruptedException {
 
         WebElement userName = driver.findElement(By.xpath("//input[@id='prependedInput']"));
-        userName.sendKeys("user150");
+        userName.sendKeys(ConfigurationReader.getProperty("username"));
+        Thread.sleep(2000);
         WebElement password = driver.findElement(By.cssSelector("input[id='prependedInput2']"));
-        password.sendKeys("UserUser123");
+        password.sendKeys(ConfigurationReader.getProperty("password"));
+        Thread.sleep(2000);
         WebElement clickLogin = driver.findElement(By.xpath("//button[@id='_submit']"));
         clickLogin.click();
-
-        WebElement help = driver.findElement(By.xpath("//li/a[@class='help no-hash']"));
+        Thread.sleep(2000);
+        WebElement help = driver.findElement(By.xpath("//li/a[@class='help no-hash']/i"));
         help.click();
-
+        Thread.sleep(2000);
         WebElement logOut = driver.findElement(By.xpath("//i[@class='fa-caret-down']"));
         logOut.click();
+        Thread.sleep(2000);
         WebElement loqOut1 = driver.findElement(By.xpath("//a[.='Logout']"));
         loqOut1.click();
 

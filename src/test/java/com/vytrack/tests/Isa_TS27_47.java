@@ -31,7 +31,10 @@ public class Isa_TS27_47 {
         WebElement passportBox=driver.findElement(By.xpath("//input[@type='password']"));
 
 
-        userBox.sendKeys("user150");
+        //userBox.sendKeys("user150");
+        //userBox.sendKeys("salesmanager267");
+        userBox.sendKeys("storemanager97");
+
 
         passportBox.sendKeys("UserUser123");
 
@@ -39,7 +42,8 @@ public class Isa_TS27_47 {
 
         loginButton.click();
 
-        WebElement fleetMagule =driver.findElement(By.xpath(""));
+        WebElement fleetMagule =driver.findElement(By.xpath("(//span[@class='title title-level-2'])[4]"));
+        fleetMagule.click();
 
 
 

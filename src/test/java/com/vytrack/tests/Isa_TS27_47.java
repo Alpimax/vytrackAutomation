@@ -39,7 +39,7 @@ public class Isa_TS27_47 {
 
         loginButton.click();
 
-        WebElement fleetMagule =driver.findElement(By.xpath("//span[@class='title title-level-1']/i[@class='fa-asterisk menu-icon']"));
+        WebElement fleetMagule =driver.findElement(By.xpath(""));
 
 
 

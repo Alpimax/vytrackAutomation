@@ -35,7 +35,7 @@ public class Alper_TS27_45 {
     public void testModel() throws InterruptedException {
 
         WebElement userName = driver.findElement(By.xpath("//input[@id='prependedInput']"));
-        userName.sendKeys(ConfigurationReader.getProperty("username"));
+        userName.sendKeys(ConfigurationReader.getProperty("UserUsr"));
         Thread.sleep(2000);
 
         WebElement password = driver.findElement(By.cssSelector("input[id='prependedInput2']"));

@@ -1,4 +1,6 @@
 package com.vytrack.tests;
+
+import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
@@ -7,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import java.util.concurrent.TimeUnit;
 
 public class Alper_TS27_45 {
@@ -23,7 +26,9 @@ public class Alper_TS27_45 {
 
     @AfterMethod
     public void tearDown() {
-      driver.quit();
+        driver.close();
+        BrowserUtils.sleep(1);
+        driver.quit();
     }
 
     @Test

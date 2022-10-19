@@ -13,6 +13,7 @@ public class Driver {
      Creating a private constructor, so we are closing access to the object of this class
      from outside of any classes
      */
+    private static WebDriver driver;
     private Driver(){}
 
     /*
@@ -20,7 +21,7 @@ public class Driver {
     We make it static, because we want it to run before anyting else,
     also we will use it in static method
      */
-    private static WebDriver driver;
+
 
     /*
     Create re-usable utility method which will return same driver instance when we call it.

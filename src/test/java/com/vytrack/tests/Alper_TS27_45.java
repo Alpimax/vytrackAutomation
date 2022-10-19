@@ -32,18 +32,23 @@ public class Alper_TS27_45 {
         WebElement userName = driver.findElement(By.xpath("//input[@id='prependedInput']"));
         userName.sendKeys(ConfigurationReader.getProperty("username"));
         Thread.sleep(2000);
+
         WebElement password = driver.findElement(By.cssSelector("input[id='prependedInput2']"));
         password.sendKeys(ConfigurationReader.getProperty("password"));
         Thread.sleep(2000);
+
         WebElement clickLogin = driver.findElement(By.xpath("//button[@id='_submit']"));
         clickLogin.click();
         Thread.sleep(2000);
+
         WebElement help = driver.findElement(By.xpath("//li/a[@class='help no-hash']/i"));
         help.click();
         Thread.sleep(2000);
+
         WebElement logOut = driver.findElement(By.xpath("//i[@class='fa-caret-down']"));
         logOut.click();
         Thread.sleep(2000);
+
         WebElement loqOut1 = driver.findElement(By.xpath("//a[.='Logout']"));
         loqOut1.click();
 

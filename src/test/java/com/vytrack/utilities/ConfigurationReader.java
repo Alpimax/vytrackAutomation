@@ -7,18 +7,18 @@ import java.util.Properties;
 public class ConfigurationReader {
 
     // 1 - Create the obj of Properties
-   private static Properties properties = new Properties();
+    private static Properties properties = new Properties();
 
     static {
         try {
-        // 2 - We need to open the file in java memory: FileInputStream
-        FileInputStream file = new FileInputStream("configuration.properties");
+            // 2 - We need to open the file in java memory: FileInputStream
+            FileInputStream file = new FileInputStream("configuration.properties");
 
-        // 3 - load the properties object using FileInputStream
-        properties.load(file);
+            // 3 - load the properties object using FileInputStream
+            properties.load(file);
 
-        // close the file
-        file.close();
+            // close the file
+            file.close();
 
         } catch (IOException e) {
             System.out.println("File not found in the ConfigurationReader class");
@@ -26,7 +26,47 @@ public class ConfigurationReader {
         }
     }
 
-    public static String getProperty(String keyword){
-        return properties.getProperty(keyword);
+    public static String getProperty(String keyword) {
+
+        // 1- Create the object of Properties class
+        // We need properties class to use methods coming from class like load(), getProperty("key")
+        // it is static because we using it in static method and static block
+        // It is private because I will be using only in this class
+        private static Properties properties = new Properties();
+
+        // We want to open the properties file and load to properties object ONLY ONCE before reading
+        // having static block because static runs first
+        static {
+
+            try {
+                // 2- Create the object of FileInputStream
+                // We need this object to open file as a stream in Java memory
+                FileInputStream file = new FileInputStream("config.properties");
+
+                // 3- Load the properties object using FileInputStream object
+                // Load "properties" object with the "file" we opened using FileInputStream
+                properties.load(file);
+
+                // close the file after loading
+                // if we do not close the file, it will take space from computer memory
+                file.close();
+
+            } catch (IOException e) {
+                System.err.println(" Your configuration.properties did not open bro  !!!. Go back and check it before run code...");
+            }
+        }
+
+        /**
+         * This method is used to read value from a configuration.properties file
+         *
+         * @param keyword --> key name in configuration.properties file
+         * @return --> value for the key. returns null if key is not found
+         * driver.get(ConfigurationReader.getProperty("env"))
+         */
+        public static String getProperty (String keyword){
+
+            return properties.getProperty(keyword);
+        }
     }
 }
+

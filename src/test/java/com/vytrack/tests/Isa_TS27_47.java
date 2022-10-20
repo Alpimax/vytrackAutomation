@@ -57,6 +57,7 @@ public class Isa_TS27_47 {
         Actions actions=new Actions(driver);
         actions.moveToElement(fleetMagule).pause(1000).moveToElement(vehicleContract).build().perform();
 
+
 //        WebElement messageForTruckDriver=driver.findElement(By.xpath("(//div/div[@class='message'])"));
 //
 //        String expectedMessage="You do not have permission to perform this action.";
